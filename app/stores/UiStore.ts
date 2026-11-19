@@ -410,6 +410,9 @@ class UiStore {
       this.secondaryRightSidebar = panel;
     } else {
       this.rightSidebar = panel;
+      // Persist so that the stored state reflects the latest panel, otherwise
+      // a later persist() from another setting writes a stale value.
+      this.persist();
     }
   };
 
